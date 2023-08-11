@@ -1,10 +1,9 @@
 package src;
 
-import java.util.List;
-
 import static src.StudentManagement.scanner;
+import static src.StudentManagement.studentList;
 
-public class Student implements IStudent<Student> {
+public class Student implements IStudent {
     private String studentId;
     private String studentName;
     private int age;
@@ -91,10 +90,10 @@ public class Student implements IStudent<Student> {
     }
 
     @Override
-    public void inputData(List<Student> studentList) {
+    public void inputData() {
         System.out.print("Nhập mã sinh viên: ");
         studentId = scanner.nextLine();
-        while (isExistIdStudent(studentId,studentList) && !studentId.startsWith("SV") && studentId.length() != 4) {
+        while (isExistIdStudent(studentId) && !studentId.startsWith("SV") && studentId.length() != 4) {
             System.out.println("Mã sinh viên phải gồm 4 ký tự và bắt đầu bằng SV hoặc mã sinh viên đã tồn tại. Vui lòng nhập lại.");
             System.out.print("Nhập mã sinh viên: ");
             studentId = scanner.nextLine();
@@ -181,7 +180,7 @@ public class Student implements IStudent<Student> {
         return studentName;
     }
 
-    boolean isExistIdStudent(String studentId,List<Student> studentList) {
+    boolean isExistIdStudent(String studentId) {
         for (Student studentLists : studentList) {
             if (studentLists.studentId.equals(studentId)) {
                 return true;

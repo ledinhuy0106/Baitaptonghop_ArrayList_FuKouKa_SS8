@@ -5,8 +5,8 @@ import java.util.List;
 import java.util.Scanner;
 
 public class StudentManagement {
-     static final List<Student> studentList = new ArrayList<>();
-    public static final Scanner scanner = new Scanner(System.in);
+    public static  List<Student> studentList = new ArrayList<>();
+    public static  Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
         int choice;
@@ -43,14 +43,14 @@ public class StudentManagement {
     }
 
     private static void inputStudents() {
-        System.out.print("Nhập số lượng sinh viên: ");
+        System.out.print("Nhậpa số lượng sinh viên: ");
         int n = scanner.nextInt();
         scanner.nextLine(); // Đọc dòng trống sau nextInt()
 
         for (int i = 0; i < n; i++) {
             System.out.println("Nhập thông tin sinh viên thứ " + (i + 1));
             Student student = new Student();
-            student.inputData(studentList);
+            student.inputData();
             studentList.add(student);
             displayAllStudents();
         }

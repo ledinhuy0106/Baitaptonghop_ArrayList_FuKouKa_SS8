@@ -2,10 +2,10 @@ package src;
 
 import java.util.List;
 
-public interface IStudent<U> {
+public interface IStudent {
     int MARK_PASS = 5;
 
-    void inputData(List<U> studentList);
+    void inputData();
     void displayData();
     float calAvgMark();
 }
